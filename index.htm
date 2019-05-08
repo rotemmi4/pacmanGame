@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="signInCss.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.js"></script>
+
+</head>
+<body id="body-id">
+    <content>
+        <div id="myModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>This is a web page created for the course Internet Programing Environments.</p>
+                <br>
+                <p>While creating this website was fairly enjoyable, there were some challenging aspects. First and foremost, every aspect of programming in a web environment is different than programing locally. Debugging is different, as more tests are done by displaying the results in a browser, javascript's asyncronyous calls  provide insight as to why things do not work as well as being different from the programing languages we use often. </p>
+                <br>
+                <p>The website was built using html, javascript and jquery. The main use of jquery was to validate forms, and perform their actions. Templates were not used at all.</p>
+            </div>
+
+        </div>
+        <menu id="menu" class="btn-group">
+            <button onclick="goToDiv('welcome')">Welcome</button>
+            <button id="myBtn">About</button>
+            <button onclick="goToDiv('start_game')">Start Game</button>
+            <button id="logOut" onclick="logOut()">LogOut</button>
+                </menu>
+        <div id="user-details"></div>
+        <header id="welcome">
+            <title>Our PacManGame</title>
+            <button class="welcome-btn" onclick="goToDiv('login')">Login</button>
+            <button class="welcome-btn" onclick="goToDiv('signup')">Sign up</button>
+        </header>
+
+        <div id="div-logInForm">
+
+            <div class="form-title">Log In</div>
+
+            <form id="logInform" name="logInForm" action="javascript: validateLogInForm()">
+                <table>
+                    <tr>
+                        <td><label for="username_login">User Name:</label></td>
+                        <td><div class="input-container">
+                            <input name="username_login" id="username_login" type="text" required/>
+                        </div></td>
+                    </tr>
+
+                    <tr>
+
+                        <td><label for="pass_login">Password:</label></td>
+                        <td><div class="input-container">
+                            <input name="pass_login" id="pass_login" type="password" required/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                        <td><input type="submit" class="greenButton" value="Log In" />
+                            <img id="loading_login" src="img/ajax-loader.gif" alt="working.." />
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+
+        <div id="div_configForm">
+
+            <div class="form-title">Configurations</div>
+
+            <form id="configForm" name="configForm" action="javascript: validateConfigForm()">
+                <table>
+                    <tr>
+                        <td><label for="upBtn">Up Button:</label></td>
+                        <td><div class="input-container">
+                            <input name="upBtn" id="upBtn" type="text"/>
+                        </div></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label for="downBtn">Down Button:</label></td>
+                        <td><div class="input-container">
+                            <input name="downBtn" id="downBtn" type="text"/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+
+                    <td><label for="leftBtn">Left Button:</label></td>
+                    <td><div class="input-container">
+                        <input name="leftBtn" id="leftBtn" type="text"/>
+                    </div></td>
+                    </tr>
+                    <tr>
+
+                    <td><label for="rightBtn">Right Button:</label></td>
+                    <td><div class="input-container">
+                        <input name="rightBtn" id="rightBtn" type="text"/>
+                    </div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fivePoints">5 - point balls color:</label></td>
+                        <td><div class="input-container">
+                            <input name="fivePoints" id="fivePoints" type="color" required/>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="fifteenPoints">15 - point balls color:</label></td>
+                        <td><div class="input-container">
+                            <input name="fifteenPoints" id="fifteenPoints" type="color" required/>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="twentyFivePoints">5 - point balls color:</label></td>
+                        <td><div class="input-container">
+                            <input name="twentyFivePoints" id="twentyFivePoints" type="color" required/>
+                        </div></td>
+                    </tr>
+                    <tr>
+                        <td><label for="amountOfBalls">Amount of Balls To Be Selected:</label></td>
+                        <td><div class="input-container">
+                            <input name="amountOfBalls" id="amountOfBalls" type="number"/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="time">Game Time:</label></td>
+                        <td><div class="input-container">
+                            <input name="time" id="time" type="number"/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+                        <td><label for="amountOfGhosts">Amount Of Ghosts In Game:</label></td>
+                        <td><div class="input-container">
+                            <input name="amountOfGhosts" id="amountOfGhosts" type="number"/>
+                        </div></td>
+
+                    </tr>
+
+                    <tr>
+                        <td><label for="ghostSpeed">Ghost Speed:</label></td>
+                        <td><select name="ghostSpeed" id="ghostSpeed" class="input-container" >
+
+                            <option value="3">Fast</option>
+
+                            <option value="2">Medium</option>
+
+                            <option value="1">Slow</option>
+
+                        </select></td>
+                    </tr>
+
+
+                    <tr>
+                        <td>
+                        <td><button class="greenButton" onclick="setRandomSettingsValues()" type="button">Random Values</button>
+                            <img id="randomValuesBtn" src="img/ajax-loader.gif" alt="working.." />
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td>
+                        <td><input type="submit" class="greenButton" value="Start Game" />
+                            <img id="loading_submit" src="img/ajax-loader.gif" alt="working.." />
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+
+
+        <div id="div-regForm">
+
+            <div class="form-title">Sign Up</div>
+            <div class="form-sub-title">It's free and anyone can join</div>
+
+            <form id="regForm" name="regForm" action="javascript: validateSignInForm()">
+                <table>
+                    <tr>
+
+                        <td><label for="fname">First Name:</label></td>
+                        <td><div class="input-container">
+                            <input name="fname" id="fname" type="text" />
+                        </div></td>
+
+                    </tr>
+                    <tr>
+
+                        <td><label for="lname">Last Name:</label></td>
+                        <td><div class="input-container">
+                            <input name="lname" id="lname" type="text" required/>
+                        </div></td>
+                    </tr>
+                    <tr>
+
+                        <td><label for="uname">User Name:</label></td>
+                        <td><div class="input-container">
+                            <input name="uname" id="uname" type="text" required/>
+                        </div></td>
+                    </tr>
+                    <tr>
+
+
+
+                        <td><label for="email">Your Email:</label></td>
+                        <td><div class="input-container">
+                            <input name="email" id="email" type="email" required/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+
+                        <td><label for="pass">New Password:</label></td>
+                        <td><div class="input-container">
+                            <input name="pass" id="pass" type="password" required/>
+                        </div></td>
+
+                    </tr>
+                    <tr>
+
+                        <td><label for="bday">Your Birthday:</label></td>
+                        <td><div class="input-container">
+                            <input name="bday" id="bday" type="date" required/>
+                        </div></td>
+
+                    </tr>
+
+                    <tr>
+                        <td>
+                        <td><input type="submit" class="greenButton" value="Sign Up" />
+                            <img id="loading" src="img/ajax-loader.gif" alt="working.." />
+                        </td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+
+            </form>
+        </div>
+
+        <div id="game" class="full-height">
+            <div class="game-content">
+                <span class="close-game">&times;</span>
+            </div>
+            <!--        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>-->
+
+
+            <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.min.js"></script>-->
+
+            <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.js"></script>-->
+            <!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.sound.min.js"></script>-->
+
+
+            <!--    <script language="javascript" type="text/javascript" src="Libraries/p5"></script>-->
+
+            <!--    <script language="javascript" type="text/javascript" src="path/to/p5.sound.js"></script>-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/addons/p5.dom.js"></script>
+            <script type="text/javascript" src="sketch.js"></script>
+            <script type="text/javascript" src="Tile.js"></script>
+
+        </div>
+
+        <footer class="footer">
+            <p>This game is not the classic PACMAN game. Rather this game is a re-interpretation of the classic made out of necessity to complete the excellent course "Internet Programing enviornments." While challenging, this was a nice experience to Have. Feel free to read more about this in the About section. We do not want to post our personal contact information to github, so if you need where to find us, you'll know how.</p>
+        </footer>
+    </content>
+
+    <script type="text/javascript" src="main.js"></script>
+</body>
+
+</html>
