@@ -204,7 +204,7 @@ function setup() {
     if(canvas!=null)
         canvas.remove();
     canvas=createCanvas(700,500);
-   // canvas.style('display', 'block');
+    canvas.style('display', 'block');
     canvas.addClass('canvass');
     newGame();
 
