@@ -309,8 +309,7 @@ td{
     background-color: #3e8e41;
     position:absolute;
     top:23%;
-    left:10%;
-    /*//right: 20%;*/
+    left:60%;
     width:10%;
     height:5%;
 }
@@ -318,7 +317,7 @@ td{
     color: #fffdfc;
     position:absolute;
     top:30.5%;
-    left:69%;
+    left:65%;
 }
 .canvass{
     position:absolute;
@@ -330,12 +329,10 @@ td{
     position: fixed;
     left: 0;
     bottom: 0;
-    height:8%;
     width: 100%;
     background-color: black;
     color: white;
     text-align: center;
-    font-size: 100%;
 }
 
 
