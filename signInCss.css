@@ -308,8 +308,8 @@ td{
     color: #fffdfc;
     background-color: #3e8e41;
     position:absolute;
-    top:23%;
-    left:60%;
+    top:30%;
+    left:10%;
     width:10%;
     height:5%;
 }
@@ -317,7 +317,7 @@ td{
     color: #fffdfc;
     position:absolute;
     top:30.5%;
-    left:65%;
+    left:69%;
 }
 .canvass{
     position:absolute;
