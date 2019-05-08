@@ -315,7 +315,7 @@ td{
 }
 .gameTimer{
     color: #fffdfc;
-    position:absolute;
+    position:relative;
     top:30.5%;
     left:65%;
 }
