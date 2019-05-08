@@ -329,11 +329,12 @@ td{
     position: fixed;
     left: 0;
     bottom: 0;
+    height:5%;
     width: 100%;
     background-color: black;
     color: white;
     text-align: center;
-    font-size: 15%;
+    font-size: 100%;
 }
 
 
